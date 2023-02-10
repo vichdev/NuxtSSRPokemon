@@ -18,7 +18,7 @@ interface IPokemon {
 
 export default Vue.extend({
   components: { PokemonGerado },
-  name: "Id",
+  name: "PokemonId",
   data() {
     return {
       pokemon: {} as Partial<IPokemon>,
@@ -84,7 +84,9 @@ export default Vue.extend({
     };
   },
   async fetch() {
-    const response = await API.get("lugia", {}).then((res) => {
+    const response = await API.get(this.$route.params.id, {}).then((res) => {
+      console.log(this.$route.params.id);
+
       return {
         name: res.data?.name,
         sprites: {
