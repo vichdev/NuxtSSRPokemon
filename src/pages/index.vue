@@ -33,9 +33,14 @@ export default Vue.extend({
           content: `${this.pokemon?.name?.toUpperCase()}`,
         },
         {
+          hid: "og:url",
+          property: "og:url",
+          content: `https://poke-napista.netlify.app`,
+        },
+        {
           hid: "image",
           name: "image",
-          property: "og:image",
+          property: "og:image:secure_url",
           content: `${this.pokemon?.sprites?.front_default}`,
         },
         {
@@ -72,7 +77,7 @@ export default Vue.extend({
         .catch((e) => console.log(e));
     },
   },
-  async beforeMount() {
+  async mounted() {
     await this.getPokemon();
   },
 });
