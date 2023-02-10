@@ -4,8 +4,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import API from "../../services/api";
-import PokemonGerado from "../../components/PokemonGerado.vue";
+import API from "../services/api";
+import PokemonGerado from "../components/PokemonGerado.vue";
 
 interface IPokemon {
   name: string;
@@ -89,7 +89,7 @@ export default Vue.extend({
 
     const response = await API.get(`${this.$route.params.id}`, {}).then(
       (res) => {
-        console.log(this.$route.params.id);
+        console.log(this.$route.query.id);
 
         return {
           name: res.data?.name,
