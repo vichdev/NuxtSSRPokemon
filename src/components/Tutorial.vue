@@ -147,7 +147,7 @@ export default {
       ];
       const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
 
-      this.$router.push(`/pokemon/?id=${nomeAleatorio}`);
+      this.$router.push(`#pokemon/?id=${nomeAleatorio}`);
     },
   },
 };

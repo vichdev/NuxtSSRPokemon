@@ -19,7 +19,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
   ssr: true,
-  target: "static",
+  target: "server",
   generate: {
     // routes() {
     //   return API.get().then((res) => {
