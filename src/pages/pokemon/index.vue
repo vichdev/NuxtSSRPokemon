@@ -58,7 +58,7 @@ export default Vue.extend({
         {
           hid: "og:url",
           property: "og:url",
-          content: `https://poke-napista.netlify.app`,
+          content: `https://poke-napista.netlify.app/pokemon?id=${this.pokemon?.name}`,
         },
         {
           hid: "image",
