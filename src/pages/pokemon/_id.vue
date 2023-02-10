@@ -1,11 +1,11 @@
 <template>
-  <pokemon-gerado :pokemon="pokemon" />
+  <PokemonGerado :pokemon="pokemon" />
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import pokemonGerado from "../../components/pokemonGerado.vue";
 import API from "../../services/api";
+import PokemonGerado from "../../components/PokemonGerado.vue";
 
 interface IPokemon {
   name: string;
@@ -17,8 +17,8 @@ interface IPokemon {
 }
 
 export default Vue.extend({
-  components: { pokemonGerado },
-  name: "Pokemon",
+  components: { PokemonGerado },
+  name: "Id",
   data() {
     return {
       pokemon: {} as Partial<IPokemon>,
