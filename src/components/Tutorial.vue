@@ -69,14 +69,8 @@
           pokemonWrapper
         "
       >
-        <div class="pokemonWrapper">
-          <h1 class="pokemonName">{{ pokemonName }}</h1>
-          <img :src="pokemonImg" alt="" />
-          <div class="infoWrapper">
-            <span>Altura: {{ pokemonHeight }}</span>
-            <span>|</span>
-            <span>Peso: {{ pokemonWeight }}</span>
-          </div>
+        <div>
+          <button class="button">Gerar link</button>
         </div>
       </div>
       <div class="flex justify-center pt-4 space-x-2">
@@ -125,24 +119,24 @@ export default {
   props: {
     pokemon: { type: Object, default: () => {} },
   },
+
   computed: {
-    pokemonName() {
-      return this.pokemon?.name?.toUpperCase();
+    nomeAleatorio() {
+      const nomes = [
+        "ditto",
+        "pikachu",
+        "charizard",
+        "squirtle",
+        "charmander",
+        "beedrill",
+        "lugia",
+      ];
+      return nomes[Math.floor(Math.random() * nomes.length)];
     },
-    pokemonImg() {
-      return this.pokemon?.sprites?.front_default;
-    },
-    pokemonHeight() {
-      if (this.pokemon?.height) {
-        return `${this.pokemon?.height}m`;
-      }
-      return "";
-    },
-    pokemonWeight() {
-      if (this.pokemon?.weight) {
-        return `${this.pokemon?.weight}kg`;
-      }
-      return "";
+  },
+  methods: {
+    geraLink() {
+      const baseURL = "";
     },
   },
 };
@@ -168,5 +162,17 @@ export default {
 .pokemonName {
   font-size: 30px;
   font-weight: bold;
+}
+
+.button {
+  width: 150px;
+  height: 60px;
+  background-color: #00dc82;
+  color: #fff;
+  opacity: 0.7;
+}
+
+.button:hover {
+  opacity: 1;
 }
 </style>
