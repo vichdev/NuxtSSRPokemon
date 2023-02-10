@@ -21,6 +21,13 @@ export default {
   ssr: true,
   target: "static",
   generate: {
+    routes() {
+      return API.get().then((res) => {
+        return res.data.map((user) => {
+          return "/users/" + user.id;
+        });
+      });
+    },
     fallback: true,
     subFolders: false,
   },
