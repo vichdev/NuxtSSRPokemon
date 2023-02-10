@@ -85,6 +85,23 @@ export default Vue.extend({
       ],
     };
   },
+  async created() {
+    const response = await API.get(`${this.$route.query.id}`, {}).then(
+      (res) => {
+        console.log(this.$route.query.id);
+
+        return {
+          name: res.data?.name,
+          sprites: {
+            front_default: res.data.sprites?.front_default,
+          },
+          height: res.data?.height,
+          weight: res.data?.weight,
+        };
+      }
+    );
+    this.pokemon = response;
+  },
   async fetch() {
     const response = await API.get(`${this.$route.query.id}`, {}).then(
       (res) => {
