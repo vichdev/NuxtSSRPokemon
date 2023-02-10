@@ -1,3 +1,5 @@
+import API from "./src/services/api";
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -20,6 +22,7 @@ export default {
   target: "static",
   generate: {
     fallback: true,
+    subFolders: false,
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
