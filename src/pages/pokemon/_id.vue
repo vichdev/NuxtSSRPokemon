@@ -84,7 +84,7 @@ export default Vue.extend({
     };
   },
   async fetch() {
-    const response = await API.get(this.$route.params.id, {}).then((res) => {
+    const response = await API.get("lugia", {}).then((res) => {
       return {
         name: res.data?.name,
         sprites: {
