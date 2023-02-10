@@ -43,9 +43,11 @@ export default Vue.extend({
     });
     return response;
   },
+  watchQuery: true,
   head() {
     return {
       title: this.pokemon?.name?.toUpperCase(),
+
       meta: [
         {
           hid: "title",
