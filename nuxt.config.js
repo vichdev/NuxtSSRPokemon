@@ -18,6 +18,9 @@ export default {
   css: [],
   ssr: true,
   target: "static",
+  generate: {
+    fallback: true,
+  },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
