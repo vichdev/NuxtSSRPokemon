@@ -70,7 +70,7 @@
         "
       >
         <div>
-          <button class="button">Gerar link</button>
+          <NuxtLink to="/pokemon/lugia">Gerar Link</NuxtLink>
         </div>
       </div>
       <div class="flex justify-center pt-4 space-x-2">
@@ -136,7 +136,8 @@ export default {
   },
   methods: {
     geraLink() {
-      const baseURL = "";
+      const baseURL = window.location.pathname;
+      console.log(baseURL);
     },
   },
 };
