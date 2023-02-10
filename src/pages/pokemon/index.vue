@@ -30,7 +30,7 @@ export default Vue.extend({
       sprites: { front_default: string };
     };
   }> {
-    const response = await API.get(route.params.id, {}).then((res) => {
+    const response = await API.get(`${route.query.id}`, {}).then((res) => {
       console.log(res?.data);
       return {
         pokemon: {
