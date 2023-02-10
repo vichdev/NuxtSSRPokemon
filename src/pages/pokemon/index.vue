@@ -86,6 +86,8 @@ export default Vue.extend({
   async fetch() {
     const response = await API.get(`${this.$route.query.id}`, {}).then(
       (res) => {
+        console.log(this.$route.query.id);
+
         return {
           name: res.data?.name,
           sprites: {
@@ -98,5 +100,6 @@ export default Vue.extend({
     );
     this.pokemon = response;
   },
+  fetchOnServer: true,
 });
 </script>
