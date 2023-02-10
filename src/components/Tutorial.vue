@@ -70,7 +70,7 @@
         "
       >
         <div>
-          <NuxtLink to="/pokemon/lugia">Gerar Link</NuxtLink>
+          <button @click="geraLink">Gerar Link</button>
         </div>
       </div>
       <div class="flex justify-center pt-4 space-x-2">
@@ -136,8 +136,18 @@ export default {
   },
   methods: {
     geraLink() {
-      const baseURL = window.location.pathname;
-      console.log(baseURL);
+      const nomes = [
+        "ditto",
+        "pikachu",
+        "charizard",
+        "squirtle",
+        "charmander",
+        "beedrill",
+        "lugia",
+      ];
+      const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
+
+      this.$router.push(`/pokemon/?id=${nomeAleatorio}`);
     },
   },
 };
