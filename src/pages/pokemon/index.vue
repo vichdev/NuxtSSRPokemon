@@ -43,7 +43,6 @@ export default Vue.extend({
     });
     return response;
   },
-  watchQuery: true,
   head() {
     return {
       title: this.pokemon?.name?.toUpperCase(),
@@ -86,6 +85,8 @@ export default Vue.extend({
     };
   },
   async fetch() {
+    console.log("chamou");
+
     const response = await API.get(`${this.$route.query.id}`, {}).then(
       (res) => {
         console.log(this.$route.query.id);
@@ -102,6 +103,5 @@ export default Vue.extend({
     );
     this.pokemon = response;
   },
-  fetchOnServer: true,
 });
 </script>
