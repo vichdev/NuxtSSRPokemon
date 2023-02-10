@@ -22,6 +22,35 @@ export default Vue.extend({
       pokemon: {} as Partial<IPokemon>,
     };
   },
+  async asyncData(): Promise<{
+    pokemon: {
+      name: string;
+      sprites: { front_default: string };
+    };
+  }> {
+    const nomes = [
+      "ditto",
+      "pikachu",
+      "charizard",
+      "squirtle",
+      "charmander",
+      "beedrill",
+      "lugia",
+    ];
+    const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
+    const response = await API.get(nomeAleatorio, {}).then((res) => {
+      console.log(res?.data);
+      return {
+        pokemon: {
+          name: res.data.name,
+          sprites: {
+            front_default: res.data.sprites?.front_default,
+          },
+        },
+      };
+    });
+    return response;
+  },
   head() {
     return {
       title: this.pokemon?.name?.toUpperCase(),
@@ -52,33 +81,29 @@ export default Vue.extend({
       ],
     };
   },
-  computed: {
-    nomeDePokemonAleatorio() {
-      const nomes = [
-        "ditto",
-        "pikachu",
-        "charizard",
-        "squirtle",
-        "charmander",
-        "beedrill",
-        "lugia",
-      ];
-      return nomes[Math.floor(Math.random() * nomes.length)];
-    },
-  },
-
-  methods: {
-    async getPokemon() {
-      await API.get(this.nomeDePokemonAleatorio, {})
-        .then((res) => {
-          console.log(res?.data);
-          this.pokemon = res?.data;
-        })
-        .catch((e) => console.log(e));
-    },
-  },
-  async mounted() {
-    await this.getPokemon();
+  async fetch() {
+    const nomes = [
+      "ditto",
+      "pikachu",
+      "charizard",
+      "squirtle",
+      "charmander",
+      "beedrill",
+      "lugia",
+    ];
+    const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
+    const response = await API.get(nomeAleatorio, {}).then((res) => {
+      console.log(res?.data);
+      return {
+        name: res.data?.name,
+        sprites: {
+          front_default: res.data.sprites?.front_default,
+        },
+        height: res.data?.height,
+        weight: res.data?.weight,
+      };
+    });
+    this.pokemon = response;
   },
 });
 </script>
