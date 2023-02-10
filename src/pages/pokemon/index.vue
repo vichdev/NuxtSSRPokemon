@@ -24,25 +24,25 @@ export default Vue.extend({
       pokemon: {} as Partial<IPokemon>,
     };
   },
-  // async asyncData({ route, params }): Promise<{
-  //   pokemon: {
-  //     name: string;
-  //     sprites: { front_default: string };
-  //   };
-  // }> {
-  //   const response = await API.get(`${route.query.id}`, {}).then((res) => {
-  //     console.log(res?.data);
-  //     return {
-  //       pokemon: {
-  //         name: res.data.name,
-  //         sprites: {
-  //           front_default: res.data.sprites?.front_default,
-  //         },
-  //       },
-  //     };
-  //   });
-  //   return response;
-  // },
+  async asyncData({ route, params }): Promise<{
+    pokemon: {
+      name: string;
+      sprites: { front_default: string };
+    };
+  }> {
+    const response = await API.get(`${route.query.id}`, {}).then((res) => {
+      console.log(res?.data);
+      return {
+        pokemon: {
+          name: res.data.name,
+          sprites: {
+            front_default: res.data.sprites?.front_default,
+          },
+        },
+      };
+    });
+    return response;
+  },
   watchQuery: true,
   head() {
     return {
