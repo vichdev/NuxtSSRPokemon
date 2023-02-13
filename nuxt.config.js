@@ -21,7 +21,6 @@ export default {
   ssr: true,
   target: "server",
   generate: {
-    routes: ["/", "/pikachu"],
     // routes() {
     //   return API.get().then((res) => {
     //     return res.data.map((user) => {
