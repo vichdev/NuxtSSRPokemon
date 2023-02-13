@@ -24,7 +24,7 @@ export default {
   generate: {
     routes: () => {
       return axios.get("https://pokeapi.co/api/v2/pokemon").then((res) => {
-        return res.results.map((pokemon) => {
+        return res?.results?.map((pokemon) => {
           return {
             route: "/pokemon/" + pokemon.name,
             payload: pokemon,
