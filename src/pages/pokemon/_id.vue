@@ -60,15 +60,11 @@ export default Vue.extend({
           content: `https://poke-napista.netlify.app/pokemon/${this.pokemon?.name}`,
         },
         {
-          hid: "image",
-          name: "image",
           property: "og:image",
           itemprop: "image",
           content: `https://raw.githubusercontent.com/vichdev/club-napista/master/src/assets/1_11zon.jpg`,
         },
         {
-          hid: "image",
-          name: "image",
           property: "og:image:secure_url",
           itemprop: "image",
           content: `https://raw.githubusercontent.com/vichdev/club-napista/master/src/assets/1_11zon.jpg`,
@@ -81,16 +77,17 @@ export default Vue.extend({
         },
         {
           property: "og:image:width",
-          content: "300",
+          content: "250",
         },
         {
           property: "og:image:height",
-          content: "300",
+          content: "250",
         },
         {
           property: "og:image:type",
-          content: "image/jpeg",
+          content: "image/jpg",
         },
+
         {
           hid: "description",
           name: "description",
