@@ -62,12 +62,12 @@ export default Vue.extend({
         {
           property: "og:image",
           itemprop: "image",
-          content: `https://raw.githubusercontent.com/vichdev/club-napista/master/src/assets/1_11zon.jpg`,
+          content: `${this.pokemon.sprites?.front_default}`,
         },
         {
           property: "og:image:secure_url",
           itemprop: "image",
-          content: `https://raw.githubusercontent.com/vichdev/club-napista/master/src/assets/1_11zon.jpg`,
+          content: `${this.pokemon.sprites?.front_default}`,
         },
         {
           hid: "type",
