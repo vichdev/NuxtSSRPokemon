@@ -1,4 +1,5 @@
 import axios from "axios";
+import API from "./src/services/api";
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -22,16 +23,14 @@ export default {
   target: "static",
   generate: {
     routes: () => {
-      return axios
-        .get("https://jsonplaceholder.typicode.com/users")
-        .then((res) => {
-          return res.data.map((user) => {
-            return {
-              route: "/pokemon/" + "pikachu",
-              payload: user,
-            };
-          });
+      return API.get().then((res) => {
+        return res.results.map((pokemon) => {
+          return {
+            route: "/pokemon/" + pokemon.name,
+            payload: pokemon,
+          };
         });
+      });
     },
 
     subFolders: false,
