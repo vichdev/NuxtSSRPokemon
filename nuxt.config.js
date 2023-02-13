@@ -1,5 +1,3 @@
-import API from "./src/services/api";
-
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -19,7 +17,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
   ssr: true,
-  target: "server",
+  target: "static",
   generate: {
     // routes() {
     //   return API.get().then((res) => {
