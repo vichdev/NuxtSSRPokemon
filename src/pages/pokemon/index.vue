@@ -85,12 +85,8 @@ export default Vue.extend({
     };
   },
   async fetch() {
-    console.log("chamou");
-
     const response = await API.get(`${this.$route.params.id}`, {}).then(
       (res) => {
-        console.log(this.$route.params.id);
-
         return {
           name: res.data?.name,
           sprites: {
