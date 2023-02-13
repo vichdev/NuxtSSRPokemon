@@ -22,13 +22,19 @@ export default {
     mode: "hash",
   },
   generate: {
-    // routes() {
-    //   return API.get().then((res) => {
-    //     return res.data.map((user) => {
-    //       return "/users/" + user.id;
-    //     });
-    //   });
-    // },
+    routes: () => {
+      return axios
+        .get("https://jsonplaceholder.typicode.com/users")
+        .then((res) => {
+          return res.data.map((user) => {
+            return {
+              route: "/pokemon/" + "pikachu",
+              payload: user,
+            };
+          });
+        });
+    },
+
     subFolders: false,
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
