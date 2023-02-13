@@ -88,7 +88,7 @@ export default Vue.extend({
         },
         {
           property: "og:image:type",
-          content: "image/png",
+          content: "image/jpeg",
         },
         {
           hid: "description",
