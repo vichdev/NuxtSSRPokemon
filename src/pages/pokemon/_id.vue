@@ -63,6 +63,7 @@ export default Vue.extend({
           hid: "image",
           name: "image",
           property: "og:image",
+          itemprop: "image",
           content: `${this.pokemon?.sprites?.front_default}`,
         },
         {
