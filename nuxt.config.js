@@ -23,7 +23,7 @@ export default {
   target: "static",
   generate: {
     routes: () => {
-      return axios.get("https://pokeapi.co/api/v2/pokemon").then((res) => {
+      return axios.get("https://pokeapi.co/api/v2/pokemon/").then((res) => {
         return res?.results?.map((pokemon) => {
           return {
             route: "/pokemon/" + pokemon.name,
