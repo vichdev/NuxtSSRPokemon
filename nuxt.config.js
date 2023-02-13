@@ -18,6 +18,9 @@ export default {
   css: [],
   ssr: true,
   target: "static",
+  router: {
+    mode: "hash",
+  },
   generate: {
     // routes() {
     //   return API.get().then((res) => {
