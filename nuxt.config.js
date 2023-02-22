@@ -21,18 +21,19 @@ export default {
   ssr: true,
   target: "static",
   generate: {
-    routes: () => {
-      return axios
-        .get("https://jsonplaceholder.typicode.com/users")
-        .then((res) => {
-          return res.data.map((user) => {
-            return {
-              route: "/pokemon/" + user.id,
-              payload: user,
-            };
-          });
-        });
-    },
+    fallback: true,
+    // routes: () => {
+    //   return axios
+    //     .get("https://jsonplaceholder.typicode.com/users")
+    //     .then((res) => {
+    //       return res.data.map((user) => {
+    //         return {
+    //           route: "/pokemon/" + user.id,
+    //           payload: user,
+    //         };
+    //       });
+    //     });
+    // },
 
     subFolders: false,
   },
